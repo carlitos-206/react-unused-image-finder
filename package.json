@@ -1,0 +1,18 @@
+{
+  "name": "react-unused-image-finder",
+  "version": "1.0.0",
+  "description": "A tool to find unused images in react project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin/find-unused-images.js"
+  },
+  "bin": {
+    "find-unused-images": "./bin/find-unused-images.js"
+  },
+  "author": "Carlos Rodrigo Caceres Martinez",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "glob": "^10.4.2"
+  }
+}

@@ -1,0 +1,23 @@
+$ npm install glob fs-extra
+
+
+$ npx knip
+Need to install the following packages:
+knip@5.22.2
+Ok to proceed? (y) y
+Unused files (6)
+findUnusedImages.js
+src/App.test.js
+src/setupTests.js
+src/components/Section_7/data_collection_project/data-project/legacy-index.js
+src/components/Section_7/data_collection_project/data-project/useSateNode.js
+src/components/Section_7/es_project/backend/index.js
+Unused dependencies (6)
+@testing-library/jest-dom    package.json
+@testing-library/react       package.json
+@testing-library/user-event  package.json
+fs-extra                     package.json
+glob                         package.json
+openai                       package.json
+Unused exports (1)
+imgDB  unknown  src/database/firebaseConnection.js:26:14

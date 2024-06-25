@@ -1,7 +1,7 @@
 {
   "name": "react-unused-image-finder",
   "version": "1.0.0",
-  "description": "A tool to find unused images in react project",
+  "description": "A tool to find unused images in a react.js project",
   "main": "index.js",
   "scripts": {
     "start": "node bin/find-unused-images.js"

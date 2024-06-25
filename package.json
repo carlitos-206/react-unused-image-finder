@@ -7,12 +7,27 @@
     "start": "node bin/find-unused-images.js"
   },
   "bin": {
-    "find-unused-images": "./bin/find-unused-images.js"
+    "find-unused-images": "bin/find-unused-images.js"
   },
   "author": "Carlos Rodrigo Caceres Martinez",
   "license": "MIT",
   "dependencies": {
     "fs-extra": "^11.2.0",
     "glob": "^10.4.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlitos-206/react-unused-image-finder.git"
+  },
+  "keywords": [
+    "react",
+    "unused",
+    "image",
+    "images",
+    "finder"
+  ],
+  "bugs": {
+    "url": "https://github.com/carlitos-206/react-unused-image-finder/issues"
+  },
+  "homepage": "https://github.com/carlitos-206/react-unused-image-finder#readme"
 }

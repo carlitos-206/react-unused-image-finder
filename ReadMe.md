@@ -2,6 +2,17 @@
 
 This documentation provides an overview of the Node.js script used to manage image files within a project. The script identifies unused image files across the project by checking image imports in JavaScript and JSX files.
 
+# Usage
+## Installation 
+Install the package globally using npm:
+
+```
+    $ npm i -g react-unused-image-finder
+```
+To run the script, execute:
+```
+    $ find-unused-images
+```
 ## Script Overview
 
 The script consists of several key functions:

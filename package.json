@@ -1,6 +1,6 @@
 {
   "name": "react-unused-image-finder",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A tool to find unused images in a react.js project",
   "main": "index.js",
   "scripts": {

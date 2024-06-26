@@ -1,6 +1,6 @@
 {
   "name": "react-unused-image-finder",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A tool to find unused images in a react.js project",
   "main": "index.js",
   "scripts": {
@@ -35,5 +35,6 @@
   "bugs": {
     "url": "https://github.com/carlitos-206/react-unused-image-finder/issues"
   },
-  "homepage": "https://github.com/carlitos-206/react-unused-image-finder#readme"
+  "homepage": "https://github.com/carlitos-206/react-unused-image-finder#readme",
+  "devDependencies": {}
 }

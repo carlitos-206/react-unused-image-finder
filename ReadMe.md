@@ -24,6 +24,9 @@ or
 ```
     $ find-unused-images-full // This gives a full report of images found, where they are used and unused images relative paths
 ```
+```
+    $ find-unused-images-help // This shows help message
+```
 ## File Structure Read Available
     Option 1:
     ┌── your-react-project

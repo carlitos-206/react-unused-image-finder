@@ -1,7 +1,5 @@
 #!/usr/bin/env node
 
-// The process object is a global that provides information about, and control over, the current Node.js process
-const process = require('process');
 // Glob is a package that allows you to use wildcards to find files and directories
 const glob = require('glob'); 
 
@@ -22,10 +20,11 @@ const collectUsedImages = () => {
     // If no files are found, log a message and return an empty Set
     if(files.length === 0) {
         throw new Error(`
-        No JavaScript or TypeScript files found in ./src/**/*.{js,jsx,ts,tsx}
-        Please make sure you are running this script from the root of your React project
+            No JavaScript or TypeScript files found in ./src/**/*.{js,jsx,ts,tsx}
+            Please make sure you are running this script from the root of your React project
         `);
     }
+    console.log('\nUsed image paths and file paths:\n');
     // Loops through and reads the content of each file found by glob
     files.forEach(file => {
     
@@ -42,8 +41,11 @@ const collectUsedImages = () => {
             const resolvedPath = path.resolve(path.dirname(file), match[1]);    // resolve the path of the image
             const relativePath = path.relative(path.join(__dirname, '..', 'src'), resolvedPath).replace(/\\/g, '/'); // get the relative path of the image
             usedImages.add(relativePath); // add the relative path to the Set
+            console.log(`Used image path: ${relativePath}`);        
+            console.log(`File path: ${file}\n`);
             }
     });
+    console.log('\nEND\n');
 
     return usedImages; // return the Set of used image paths
 };
@@ -51,8 +53,11 @@ const collectUsedImages = () => {
 // Function to collect all image files in the project
 const collect_images_src_images = () => {
     const images = glob.sync('src/images/**/*.{png,jpg,jpeg,gif,svg}', { nodir: true });
+    // only log if images are found
     if(images.length > 0){ 
+        console.log('\nImages in ./src/images/**/*:\n');
         const relativeImages = images.map(image => path.relative(path.join(__dirname, '..', 'src'), image).replace(/\\/g, '/')); // get the relative path of the image
+        console.log('\nEND\n');
         return new Set(relativeImages);
     }else {
         // Needs to return a Set to avoid error
@@ -63,9 +68,12 @@ const collect_images_src_images = () => {
 
 const collect_images_src_assets = () => {
     const images = glob.sync('src/assets/**/*.{png,jpg,jpeg,gif,svg}', { nodir: true });
+    // only log if images are found
     if(images.length>0){
+        console.log('\nImages in ./src/assets/**/*:\n');
         const relativeImages = images.map(image => path.relative(path.join(__dirname, '..', 'src'), image).replace(/\\/g, '/')); // get the relative path of the image
         relativeImages.forEach(image => console.log(`Image: ${image}`));
+        console.log('\nEND\n');
         return new Set(relativeImages);
     }else{
         // Needs to return a Set to avoid error
@@ -75,9 +83,12 @@ const collect_images_src_assets = () => {
 
 const collect_images_root_assets = () => {
     const images = glob.sync('assets/**/*.{png,jpg,jpeg,gif,svg}', { nodir: true });
+    // only log if images are found
     if(images.length>0){
+        console.log('\nImages in ./assets/**/*:\n');
         const relativeImages = images.map(image => path.relative(path.join(__dirname, '..'), image).replace(/\\/g, '/'));
         relativeImages.forEach(image => console.log(`Image in ./assets/**/*: ${image}`));
+        console.log('\nEND\n');
         return new Set(relativeImages);
     }else{
         // Needs to return a Set to avoid error
@@ -87,9 +98,12 @@ const collect_images_root_assets = () => {
 
 const collect_images_root_images = () => {
     const images = glob.sync('images/**/*.{png,jpg,jpeg,gif,svg}', { nodir: true });
+    // only log if images are found
     if(images.length>0) {
+        console.log('\nImages in ./images/**/*:\n');
         const relativeImages = images.map(image => path.relative(path.join(__dirname, '..'), image).replace(/\\/g, '/'));
         relativeImages.forEach(image => console.log(`Image in ./images/**/*: ${image}`))
+        console.log('\nEND\n');
         return new Set(relativeImages);
     }else{
         // Needs to return a Set to avoid error
@@ -144,7 +158,5 @@ const findUnusedImages = () => {
         unusedImages.forEach(image => console.log(image));
     }
 };
-
-
 
 findUnusedImages();

@@ -7,7 +7,13 @@
     "start": "node bin/find-unused-images.js"
   },
   "bin": {
-    "find-unused-images": "bin/find-unused-images.js"
+    "find-unused-images": "bin/find-unused-images.js",
+    "find-unused-images-full": "bin/find-unused-images-full.js",
+    "find-unused-images-f": "bin/find-unused-images-full.js",
+    "find-unused-images-help": "bin/find-unused-images-help.js",
+    "find-unused-images-h": "bin/find-unused-images-help.js",
+    "find-unused-images-version": "bin/find-unused-images-version.js",
+    "find-unused-images-v": "bin/find-unused-images-version.js"
   },
   "author": "Carlos Rodrigo Caceres Martinez",
   "license": "MIT",

@@ -100,5 +100,6 @@ Combines the sets of images collected from different directories and compares th
 - **Move images**: Move unused images to a folder for easy removal 
 - **Add Terminal Interaction**: If unused images are found allow the deletion of them through terminal prompts
 - **Error Handling**: Add robust error handling to manage file access permissions and missing directories.
+- **Test**: Write test for the scripts
 
 This script is a useful tool for maintaining efficient management of assets in large projects, helping to reduce clutter and optimize application performance.

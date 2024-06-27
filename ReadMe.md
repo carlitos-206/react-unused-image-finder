@@ -7,25 +7,25 @@ This documentation provides an overview of the Node.js script used to manage ima
 ### Install the package globally using npm:
 
 ```
-    $ npm i -g react-unused-image-finder
+$ npm i -g react-unused-image-finder
 ```
 or 
 
 ``` 
-    $ yarn global add react-unused-image-finder
+$ yarn global add react-unused-image-finder
 ```
 
 ### To ensure the package runs, run it at your project level
 
 #### Commands available: 
 ```
-    $ find-unused-images // This gives a summary of unused images and their relative path
+$ find-unused-images // This gives a summary of unused images and their relative path
 ```
 ```
-    $ find-unused-images-full // This gives a full report of images found, where they are used and unused images relative paths
+$ find-unused-images-full // This gives a full report of images found, where they are used and unused images relative paths
 ```
 ```
-    $ find-unused-images-help // This shows help message
+$ find-unused-images-help // This shows help message
 ```
 ## File Structure Read Available
     Option 1:
@@ -54,15 +54,15 @@ or
 ## Image Imports Method
 
 ```
-    // This is the regex used to find imports
-    const importRegex = /import\s+\w+\s+from\s+['"](\.\.\/[^'"]+\.(?:png|jpe?g|gif|svg))['"]/g;
+// This is the regex used to find imports
+const importRegex = /import\s+\w+\s+from\s+['"](\.\.\/[^'"]+\.(?:png|jpe?g|gif|svg))['"]/g;
 
-    // How it should read in your file
-    import some_image from 'file/path/to/image.{png,jpg,jpeg,gif,svg}';
+// How it should read in your file
+import some_image from 'file/path/to/image.{png,jpg,jpeg,gif,svg}';
 ```
 ### In Developement Method
 ```
-    require('file/path/to/image.{png,jpg,jpeg,gif,svg}');
+require('file/path/to/image.{png,jpg,jpeg,gif,svg}');
 ```
 
 ## Script Overview
@@ -96,7 +96,7 @@ Each of these functions targets a specific directory (`src/images`, `src/assets`
 
 ### findUnusedImages
 
-Combines the sets of images collected from different directories and compares them to the set of used images. It identifies any images not referenced in any `.js`,  `.jsx`, `.ts` and `.tsx` file and logs these as unused, providing a summary of the total images and the unused images.
+Combines the sets of images collected from different directories and compares them to the set of used images. It identifies any images not referenced in any `.js`,  `.jsx`, `.ts` and `.tsx` files and logs these as unused, providing a summary of the total images and the unused images.
 
 ## Potential Enhancements
 - **Gloabal Function**: Consolidate the `collect_images_**` functions to a single function

@@ -97,6 +97,17 @@ const collect_images_root_images = () => {
     }
 }
 
+const collect_images_public = () => {
+    const images = glob.sync('public/**/*.{png,jpg,jpeg,gif,svg}', { nodir: true });
+    if(images.length>0) {
+        const relativeImages = images.map(image => path.relative(path.join(__dirname, '..'), image).replace(/\\/g, '/'));
+        relativeImages.forEach(image => console.log(`Image in ./images/**/*: ${image}`))
+        return new Set(relativeImages);
+    }else{
+        // Needs to return a Set to avoid error
+        return new Set();
+    }
+}
 
 // const collect_images = () => {
 //   const images = glob.sync('**/*.{png,jpg,jpeg,gif,svg}', { nodir: true , ignore: ['node_modules/**/*', 'build/**/*', 'public/**/*']});
@@ -115,12 +126,14 @@ const findUnusedImages = () => {
     const root_images = collect_images_root_images();
     const root_assets = collect_images_root_assets();
 
+    const public_images = collect_images_public();
+
     const usedImages = collectUsedImages();
 
 
     // const images = collect_images();
 
-    const allImages = new Set([...src_images, ...src_assets, ...root_images, ...root_assets]);
+    const allImages = new Set([...src_images, ...src_assets, ...root_images, ...root_assets, ...public_images]);
 
     const unusedImages = [...allImages].filter(image => !usedImages.has(image));
 
@@ -131,7 +144,7 @@ const findUnusedImages = () => {
         if(src_assets.size > 0) console.log(`Total images in ./src/assets: ${src_assets.size}`);
         if(root_images.size > 0) console.log(`Total images in ./images: ${root_images.size}`);
         if(root_assets.size > 0) console.log(`Total images in ./assets: ${root_assets.size}`);
-
+        if(public_images.size > 0) console.log(`Total images in ./public: ${public_images.size}`);
     } else {
         console.log('\nUnused images found!\n');
         console.log(`\nTotal images: ${allImages.size}`);
@@ -139,6 +152,7 @@ const findUnusedImages = () => {
         if(src_assets.size > 0) console.log(`Total images in ./src/assets: ${src_assets.size}`);
         if(root_images.size > 0) console.log(`Total images in ./images: ${root_images.size}`);
         if(root_assets.size > 0) console.log(`Total images in ./assets: ${root_assets.size}`);
+        if(public_images.size > 0) console.log(`Total images in ./public: ${public_images.size}`);
         console.log(`Total unused images: ${unusedImages.length}`);
         console.log('\nUnused images:');
         unusedImages.forEach(image => console.log(image));
